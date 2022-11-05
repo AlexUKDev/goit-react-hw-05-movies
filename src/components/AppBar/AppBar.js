@@ -1,7 +1,7 @@
 import { AiFillHome } from 'react-icons/ai';
 import { RiMovieFill } from 'react-icons/ri';
 
-import { HeaderBox, NavWrap, LinkItem } from './AppBar.Syled';
+import { HeaderBox, NavWrap, NavLinkItem } from './AppBar.Syled';
 
 const NavItemConfig = [
   { href: '/', text: 'Home', icon: AiFillHome },
@@ -14,10 +14,10 @@ export const AppBar = () => {
       <NavWrap>
         {NavItemConfig.map(({ href, text, icon: Icon }) => {
           return (
-            <LinkItem to={href}>
+            <NavLinkItem to={href}>
               <Icon size="15" />
               {text}
-            </LinkItem>
+            </NavLinkItem>
           );
         })}
       </NavWrap>

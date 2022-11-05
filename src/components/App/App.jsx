@@ -2,11 +2,11 @@ import { useEffect, useState } from 'react';
 import { AppWrap } from './App.Styled';
 import { getTrendingMovies } from '../../api/api';
 import { Route, Routes } from 'react-router-dom';
+import { AppBar } from '../AppBar/AppBar';
 import { Home } from '../Home/Home';
-import MovieDetails from '../MovieDetails/MovieDetails';
+import { MovieDetails } from '../MovieDetails/MovieDetails';
 import Cast from '../Cast/Cast';
 import Reviews from '../Reviews/Reviews';
-
 import { Movies } from 'components/Movies/Movies';
 
 const App = () => {
@@ -29,13 +29,13 @@ const App = () => {
 
   return (
     <AppWrap>
+      <AppBar />
       <Routes>
-        <Route path="/" element={<Home />}></Route>
-        <Route path="/movies" element={<Movies />}>
-          <Route path=":movieId" element={<MovieDetails />}>
-            <Route path="cast" element={<Cast />} />
-            <Route path="reviews" element={<Reviews />} />
-          </Route>
+        <Route path="/" element={<Home />} />
+        <Route path="/movies" element={<Movies />} />
+        <Route path="/movies/:movieId" element={<MovieDetails />}>
+          <Route path="cast" element={<Cast />} />
+          <Route path="reviews" element={<Reviews />} />
         </Route>
       </Routes>
     </AppWrap>

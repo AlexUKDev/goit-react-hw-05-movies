@@ -1,6 +1,21 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+
+export const Wrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin: 25px 0px 0px 25px;
+`;
+
+export const Title = styled.h1`
+  margin: 0px 0px 20px 0px;
+  padding: 0;
+  font-size: 30px;
+`;
+
 export const BoxList = styled.ul`
+  margin: 0;
+  padding: 0;
   list-style: none;
 `;
 

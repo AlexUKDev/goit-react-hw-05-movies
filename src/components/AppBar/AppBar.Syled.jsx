@@ -16,7 +16,7 @@ export const NavWrap = styled.nav`
   box-shadow: 0px 3px 15px 0px rgba(0, 0, 0, 0.3);
 `;
 
-export const LinkItem = styled(NavLink)`
+export const NavLinkItem = styled(NavLink)`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -24,11 +24,12 @@ export const LinkItem = styled(NavLink)`
 
   width: 75px;
   text-decoration: none;
-  background-color: #479e50;
-  color: rgba(37, 38, 38, 1);
+  /* background-color: #ed7230; */
+  color: black;
+  /* border: 1px solid #ed7230; */
   border-radius: 8px;
   font-weight: 600;
-  border-color: transparent;
+  border-color: #ed7230;
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:not(:last-child) {
@@ -36,9 +37,9 @@ export const LinkItem = styled(NavLink)`
   }
 
   &:hover,
-  &:focus {
+  &.active {
     background-color: #54b95f;
     color: white;
-    scale: 0.994;
+    scale: 0.995;
   }
 `;
