@@ -1,5 +1,6 @@
 import { AiFillHome } from 'react-icons/ai';
 import { RiMovieFill } from 'react-icons/ri';
+import { Outlet } from 'react-router-dom';
 
 import { HeaderBox, NavWrap, NavLinkItem } from './AppBar.Syled';
 
@@ -10,17 +11,20 @@ const NavItemConfig = [
 
 export const AppBar = () => {
   return (
-    <HeaderBox>
-      <NavWrap>
-        {NavItemConfig.map(({ href, text, icon: Icon }) => {
-          return (
-            <NavLinkItem to={href}>
-              <Icon size="15" />
-              {text}
-            </NavLinkItem>
-          );
-        })}
-      </NavWrap>
-    </HeaderBox>
+    <>
+      <HeaderBox>
+        <NavWrap>
+          {NavItemConfig.map(({ href, text, icon: Icon }) => {
+            return (
+              <NavLinkItem to={href} key={text}>
+                <Icon size="15" />
+                {text}
+              </NavLinkItem>
+            );
+          })}
+        </NavWrap>
+      </HeaderBox>
+      <Outlet />
+    </>
   );
 };

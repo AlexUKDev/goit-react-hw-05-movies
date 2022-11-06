@@ -1,44 +1,28 @@
-import { useEffect, useState } from 'react';
-import { AppWrap } from './App.Styled';
-import { getTrendingMovies } from '../../api/api';
-import { Route, Routes } from 'react-router-dom';
+// import { useEffect, useState } from 'react';
+// import { AppWrap } from './App.Styled';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import { AppBar } from '../AppBar/AppBar';
 import { Home } from '../Home/Home';
 import { MovieDetails } from '../MovieDetails/MovieDetails';
-import Cast from '../Cast/Cast';
-import Reviews from '../Reviews/Reviews';
+import { Cast } from '../Cast/Cast';
+import { Reviews } from '../Reviews/Reviews';
 import { Movies } from 'components/Movies/Movies';
 
 const App = () => {
-  const [data, setData] = useState();
-
-  useEffect(() => {
-    const getTestData = async () => {
-      try {
-        const data = await getTrendingMovies();
-        console.log(data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    getTestData();
-
-    setData(data);
-  }, [data]);
-
   return (
-    <AppWrap>
-      <AppBar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/movies" element={<Movies />} />
+    <Routes>
+      <Route path="/" element={<AppBar />}>
+        <Route index element={<Home />} />
+        <Route path="/movies" element={<Movies />}>
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Route>
         <Route path="/movies/:movieId" element={<MovieDetails />}>
           <Route path="cast" element={<Cast />} />
           <Route path="reviews" element={<Reviews />} />
         </Route>
-      </Routes>
-    </AppWrap>
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Route>
+    </Routes>
   );
 };
 

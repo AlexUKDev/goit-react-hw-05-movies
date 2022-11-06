@@ -13,3 +13,16 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+*{
+  padding: 0;
+  margin: 0;
+}
+
+.BackIcon{
+  transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.GoBackLink:hover .BackIcon{
+  scale: 1.15;
+  transform: translate(-3px, 0%);
+}

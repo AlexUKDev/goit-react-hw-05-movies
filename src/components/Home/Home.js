@@ -7,14 +7,19 @@ export const Home = () => {
   const [trendingMovies, setTrendingMovies] = useState(null);
 
   useEffect(() => {
+    if (trendingMovies) {
+      return;
+    }
+
     const getMoviesList = async () => {
-      const results = await getTrendingMovies();
-      setTrendingMovies(results);
+      const response = await getTrendingMovies();
+      if (trendingMovies === null) {
+        setTrendingMovies(response);
+      }
     };
 
     getMoviesList();
-    console.log(trendingMovies);
-  });
+  }, [trendingMovies]);
 
   return (
     <>
