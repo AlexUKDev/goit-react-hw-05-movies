@@ -13,9 +13,8 @@ export const Home = () => {
 
     const getMoviesList = async () => {
       const response = await getTrendingMovies();
-      if (trendingMovies === null) {
-        setTrendingMovies(response);
-      }
+
+      setTrendingMovies(response);
     };
 
     getMoviesList();
