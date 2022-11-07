@@ -1,5 +1,5 @@
 // import { Link, Outlet } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 import { getTrendingMovies } from '../../api/api';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { MoviesList } from '../../components/MoviesList/MoviesList';
@@ -21,16 +21,14 @@ export const Home = () => {
   };
 
   useEffect(() => {
-    if (movies.length === 0) {
-      createTrandingMovies();
+    if (movies.length > 0) {
+      return;
     }
+    createTrandingMovies();
   }, [movies]);
 
-  return (
-    <>
-      {movies.length > 0 && (
-        <MoviesList moviesList={movies} title={'Trending today'} />
-      )}
-    </>
-  );
+  if (movies.length < 0) {
+    return;
+  }
+  return <MoviesList moviesList={movies} title={'Trending today'} />;
 };

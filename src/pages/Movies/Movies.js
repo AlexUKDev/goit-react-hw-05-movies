@@ -36,13 +36,13 @@ export const Movies = () => {
     }
   };
 
-  const getSearchParams = e => {
+  function getSearchParams(e) {
     let searchValue = e.target.value.toLowerCase().trim();
 
     setSearchParams(searchValue ? { query: searchValue } : {});
 
     console.log(searchValue);
-  };
+  }
 
   useEffect(() => {
     if (!search) {
