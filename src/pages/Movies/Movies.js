@@ -30,9 +30,10 @@ export const Movies = () => {
       }
 
       setMovies(results);
-      setIsLoading(false);
     } catch (error) {
       console.log(error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -54,7 +55,7 @@ export const Movies = () => {
   return (
     <>
       <SearchBox onChangeFn={getSearchParams} searchValue={search} />
-      {isLoaging && <p>Loading</p>}
+      {isLoaging && <p>Loading...</p>}
       {movies.length > 0 && <MoviesList moviesList={movies} />}
     </>
   );
