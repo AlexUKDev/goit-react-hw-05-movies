@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Outlet, useParams } from 'react-router-dom';
 import { getMovieDetailsById } from '../../api/api';
-import { GoBackLink } from '../GoBackLink/GoBackLink';
-import { FilmInfoCard } from '../FilmInfoCard/FilmInfoCard';
+import { GoBackLink } from '../../components/GoBackLink/GoBackLink';
+import { FilmInfoCard } from '../../components/FilmInfoCard/FilmInfoCard';
 import { Title, Box, Links, LinkItem, NavLinkItem } from './MovieDetails.Syled';
 
 export const MovieDetails = () => {

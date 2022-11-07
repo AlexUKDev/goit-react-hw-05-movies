@@ -1,16 +1,10 @@
-import {
-  Wrap,
-  Title,
-  BoxList,
-  ListItem,
-  LinkItem,
-} from './TrendingList.Styles';
+import { Wrap, Title, List, ListItem, LinkItem } from './MoviesList.Styles';
 
-export const TrendingList = ({ moviesList, title }) => {
+export const MoviesList = ({ moviesList, title }) => {
   return (
     <Wrap>
-      <Title>{title}</Title>
-      <BoxList>
+      {title && <Title>{title}</Title>}
+      <List>
         {moviesList.map(({ id, original_title }) => {
           return (
             <ListItem key={id}>
@@ -18,7 +12,7 @@ export const TrendingList = ({ moviesList, title }) => {
             </ListItem>
           );
         })}
-      </BoxList>
+      </List>
     </Wrap>
   );
 };

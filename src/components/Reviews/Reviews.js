@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getReviews } from '../../api/api';
+import { Mesage } from 'components/Mesage/Mesage';
 import { List, ListItem, Author, Text, Data } from './Reviews.Syled';
 
 export const Reviews = () => {
@@ -44,7 +45,7 @@ export const Reviews = () => {
           })}
         </List>
       ) : (
-        <p>We don't have any reviews for this movie.</p>
+        <Mesage mesage={"We don't have any reviews for this movie."} />
       )}
     </>
   );

@@ -13,7 +13,7 @@ export const Title = styled.h1`
   font-size: 30px;
 `;
 
-export const BoxList = styled.ul`
+export const List = styled.ul`
   margin: 0;
   padding: 0;
   list-style: none;
