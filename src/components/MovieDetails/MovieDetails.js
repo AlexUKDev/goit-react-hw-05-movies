@@ -18,7 +18,6 @@ export const MovieDetails = () => {
     const getDetails = async () => {
       try {
         const response = await getMovieDetailsById(movieId);
-        console.log(response);
         setDetails(response);
       } catch (error) {
         console.log(error);
