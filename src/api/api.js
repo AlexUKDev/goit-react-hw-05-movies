@@ -1,66 +1,48 @@
 import axios from 'axios';
 const BASE_URL = 'https://api.themoviedb.org';
 const API_KEY = '2a9508b53f96c4bcd1c5060f447f5cf1';
+const OPTIONS = {
+  params: {
+    api_key: API_KEY,
+  },
+};
 
 axios.defaults.baseURL = BASE_URL;
 export const getTrendingMovies = async () => {
-  const options = {
-    params: {
-      api_key: API_KEY,
-    },
-  };
-
-  const { data } = await axios('/3/trending/movie/week', options);
+  const { data } = await axios('/3/trending/movie/week', OPTIONS);
 
   return data.results;
 };
 
 export const getMovieDetailsById = async movieId => {
-  const options = {
-    params: {
-      api_key: API_KEY,
-    },
-  };
-
-  const { data } = await axios(`/3/movie/${movieId}`, options);
+  const { data } = await axios(`/3/movie/${movieId}`, OPTIONS);
 
   return data;
 };
 
 export const getCasts = async id => {
-  const options = {
-    params: {
-      api_key: API_KEY,
-    },
-  };
-
-  const { data } = await axios(`/3/movie/${id}/credits`, options);
+  const { data } = await axios(`/3/movie/${id}/credits`, OPTIONS);
 
   return data;
 };
 
 export const getReviews = async id => {
+  const { data } = await axios(`/3/movie/${id}/reviews`, OPTIONS);
+
+  return data;
+};
+
+export const getMoviesByName = async name => {
   const options = {
     params: {
       api_key: API_KEY,
+      query: name,
     },
   };
-
-  const { data } = await axios(`/3/movie/${id}/reviews`, options);
+  const { data } = await axios(`/3/search/movie/`, options);
 
   return data;
 };
 
 //SEND REQUEST
-// https://api.themoviedb.org/3/movie/541134/reviews?api_key=2a9508b53f96c4bcd1c5060f447f5cf1&language=en-US&page=1
-// https://api.themoviedb.org/3/movie/{movie_id}?api_key=2a9508b53f96c4bcd1c5060f447f5cf1&language=en-US
-// https://api.themoviedb.org/3/trending/movie/week?api_key=2a9508b53f96c4bcd1c5060f447f5cf1
-
-// Для бекенда используй themoviedb.org API. Необходимо зарегистриваться (можно ввести произвольные данные) и получить API-ключ.
-// В этой работе будут использоваться следующие ендпоинты.
-
-//        /trending/get-trending список самых популярных фильмов на сегодня для создания коллекции на главной странице.
-//        /search/search-movies поиск кинофильма по ключевому слову на странице фильмов.
-//        /movies/get-movie-details запрос полной информации о фильме для страницы кинофильма.
-//        /movies/get-movie-credits запрос информации о актёрском составе для страницы кинофильма.
-//        /movies/get-movie-reviews запрос обзоров для страницы кинофильма.
+// https://api.themoviedb.org/3/search/movie?api_key=2a9508b53f96c4bcd1c5060f447f5cf1&language=en-US&query=fdf&page=1&include_adult=false
