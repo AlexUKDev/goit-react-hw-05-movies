@@ -1,8 +1,22 @@
-import { Box, InputSearch } from './SearchBox.Styled';
-export const SearchBox = ({ onChangeFn, searchValue }) => {
+import { FcSearch } from 'react-icons/fc';
+import { Box, InputSearch, Form, Button } from './SearchBox.Styled';
+export const SearchBox = ({
+  searchParamsHandler,
+  submitHandler,
+  searchValue,
+}) => {
   return (
     <Box>
-      <InputSearch type="text" onChange={onChangeFn} value={searchValue} />
+      <Form onSubmit={submitHandler}>
+        <Button type="submit" className="subBtn">
+          <FcSearch size={25} className="searchIcon" />
+        </Button>
+        <InputSearch
+          type="text"
+          onChange={searchParamsHandler}
+          value={searchValue}
+        />
+      </Form>
     </Box>
   );
 };

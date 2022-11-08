@@ -9,6 +9,7 @@ export const Movies = () => {
   const [movies, setMovies] = useState([]);
   const [isLoaging, setIsLoading] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
+  const [query, setQuery] = useState(null);
   const search = searchParams.get('query') ?? '';
 
   console.log(search);
@@ -37,24 +38,36 @@ export const Movies = () => {
     }
   };
 
-  function getSearchParams(e) {
+  const searchParamsHandler = e => {
     let searchValue = e.target.value.toLowerCase().trim();
 
     setSearchParams(searchValue ? { query: searchValue } : {});
 
     console.log(searchValue);
-  }
+  };
+
+  const submitHandler = e => {
+    e.preventDefault();
+    if (!search) {
+      Notify.failure('Please enter a movie name and try again');
+    }
+    setQuery(search);
+  };
 
   useEffect(() => {
-    if (!search) {
+    if (!query) {
       return;
     }
-    createMoviesByName(search);
-  }, [search]);
+    createMoviesByName(query);
+  }, [query]);
 
   return (
     <>
-      <SearchBox onChangeFn={getSearchParams} searchValue={search} />
+      <SearchBox
+        searchParamsHandler={searchParamsHandler}
+        submitHandler={submitHandler}
+        searchValue={search}
+      />
       {isLoaging && <p>Loading...</p>}
       {movies.length > 0 && <MoviesList moviesList={movies} />}
     </>

@@ -24,9 +24,7 @@ export const NavLinkItem = styled(NavLink)`
 
   width: 75px;
   text-decoration: none;
-  /* background-color: #ed7230; */
   color: black;
-  /* border: 1px solid #ed7230; */
   border-radius: 8px;
   font-weight: 600;
   border-color: #ed7230;
