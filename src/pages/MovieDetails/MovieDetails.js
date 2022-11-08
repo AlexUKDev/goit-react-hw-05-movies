@@ -1,15 +1,14 @@
 import { useEffect, useState } from 'react';
-import { Outlet, useParams } from 'react-router-dom';
+import { Outlet, useLocation, useParams } from 'react-router-dom';
 import { getMovieDetailsById } from '../../api/api';
 import { GoBackLink } from '../../components/GoBackLink/GoBackLink';
 import { FilmInfoCard } from '../../components/FilmInfoCard/FilmInfoCard';
 import { Title, Box, Links, LinkItem, NavLinkItem } from './MovieDetails.Syled';
 
-export const MovieDetails = () => {
+const MovieDetails = () => {
   const [details, setDetails] = useState(null);
-  // const [reviews, setReviews] = useState(null);
-  // const [casts, setCasts] = useState(null);
   const { movieId } = useParams();
+  const location = useLocation();
 
   useEffect(() => {
     if (details) {
@@ -31,9 +30,11 @@ export const MovieDetails = () => {
     return;
   }
 
+  const backLinkRef = location.state?.from ?? '/movies';
+
   return (
     <div>
-      <GoBackLink to="/" />
+      <GoBackLink to={backLinkRef} />
       <FilmInfoCard details={details} />
       <Box>
         <Title>Editional information</Title>
@@ -50,4 +51,5 @@ export const MovieDetails = () => {
     </div>
   );
 };
-// <h2>MovieDetails</h2>
+
+export default MovieDetails;

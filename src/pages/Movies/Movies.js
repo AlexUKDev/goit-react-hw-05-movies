@@ -5,14 +5,13 @@ import { SearchBox } from '../../components/SearchBox/SearchBox';
 import { MoviesList } from 'components/MoviesList/MoviesList';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
-export const Movies = () => {
+const Movies = () => {
   const [movies, setMovies] = useState([]);
   const [isLoaging, setIsLoading] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
   const [query, setQuery] = useState(null);
-  const search = searchParams.get('query') ?? '';
 
-  console.log(search);
+  const search = searchParams.get('query') ?? '';
 
   const createMoviesByName = async filmName => {
     if (!filmName) {
@@ -21,7 +20,6 @@ export const Movies = () => {
 
     try {
       setIsLoading(true);
-      setMovies([]);
 
       const { results } = await getMoviesByName(filmName);
       if (results.length === 0) {
@@ -42,8 +40,6 @@ export const Movies = () => {
     let searchValue = e.target.value.toLowerCase().trim();
 
     setSearchParams(searchValue ? { query: searchValue } : {});
-
-    console.log(searchValue);
   };
 
   const submitHandler = e => {
@@ -58,6 +54,7 @@ export const Movies = () => {
     if (!query) {
       return;
     }
+
     createMoviesByName(query);
   }, [query]);
 
@@ -73,3 +70,5 @@ export const Movies = () => {
     </>
   );
 };
+
+export default Movies;

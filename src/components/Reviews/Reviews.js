@@ -4,7 +4,7 @@ import { getReviews } from '../../api/api';
 import { Mesage } from 'components/Mesage/Mesage';
 import { List, ListItem, Author, Text, Data } from './Reviews.Syled';
 
-export const Reviews = () => {
+const Reviews = () => {
   const { movieId } = useParams();
   const [reviews, setReviews] = useState(null);
 
@@ -50,3 +50,5 @@ export const Reviews = () => {
     </>
   );
 };
+
+export default Reviews;

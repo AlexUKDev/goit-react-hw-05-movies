@@ -12,7 +12,7 @@ import {
   ImgBox,
 } from './Cast.Syled';
 
-export const Cast = () => {
+const Cast = () => {
   const { movieId } = useParams();
   const [casts, setCasts] = useState(null);
 
@@ -71,3 +71,5 @@ export const Cast = () => {
     </>
   );
 };
+
+export default Cast;

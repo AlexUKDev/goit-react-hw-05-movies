@@ -1,6 +1,7 @@
+import { Suspense } from 'react';
+import { Outlet } from 'react-router-dom';
 import { AiFillHome } from 'react-icons/ai';
 import { RiMovieFill } from 'react-icons/ri';
-import { Outlet } from 'react-router-dom';
 
 import { HeaderBox, NavWrap, NavLinkItem } from './AppBar.Syled';
 
@@ -24,7 +25,9 @@ export const AppBar = () => {
           })}
         </NavWrap>
       </HeaderBox>
-      <Outlet />
+      <Suspense>
+        <Outlet />
+      </Suspense>
     </>
   );
 };

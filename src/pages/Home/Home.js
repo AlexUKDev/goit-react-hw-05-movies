@@ -4,7 +4,7 @@ import { getTrendingMovies } from '../../api/api';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { MoviesList } from '../../components/MoviesList/MoviesList';
 
-export const Home = () => {
+const Home = () => {
   const [movies, setMovies] = useState([]);
 
   const createTrandingMovies = async () => {
@@ -32,3 +32,5 @@ export const Home = () => {
   }
   return <MoviesList moviesList={movies} title={'Trending today'} />;
 };
+
+export default Home;
