@@ -39,7 +39,7 @@ export const getMoviesByName = async name => {
       query: name,
     },
   };
-  const { data } = await axios(`/3/search/movie/`, options);
+  const { data } = await axios(`/3/search/movie`, options);
 
   return data;
 };
