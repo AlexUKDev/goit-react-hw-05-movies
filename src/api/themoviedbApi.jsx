@@ -43,6 +43,3 @@ export const getMoviesByName = async name => {
 
   return data;
 };
-
-//SEND REQUEST
-// https://api.themoviedb.org/3/search/movie?api_key=2a9508b53f96c4bcd1c5060f447f5cf1&language=en-US&query=fdf&page=1&include_adult=false

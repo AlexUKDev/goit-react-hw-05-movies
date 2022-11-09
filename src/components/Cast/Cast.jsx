@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { getCasts } from '../../api/api';
+import { getCasts } from '../../api/themoviedbApi';
 import { getFullImgUrl } from '../../utils/getFullImgUrl';
 import { FaImages } from 'react-icons/fa';
 import {
@@ -10,7 +10,7 @@ import {
   AccentTitle,
   InfoText,
   ImgBox,
-} from './Cast.Syled';
+} from './Cast.Styled';
 
 const Cast = () => {
   const { movieId } = useParams();

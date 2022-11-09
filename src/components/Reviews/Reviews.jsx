@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { getReviews } from '../../api/api';
-import { Mesage } from 'components/Mesage/Mesage';
+import { getReviews } from '../../api/themoviedbApi';
+import { Mesage } from 'components/UI/Mesage/Mesage';
 import { List, ListItem, Author, Text, Data } from './Reviews.Syled';
 
 const Reviews = () => {

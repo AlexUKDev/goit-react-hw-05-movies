@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Outlet, useLocation, useParams } from 'react-router-dom';
-import { getMovieDetailsById } from '../../api/api';
+import { getMovieDetailsById } from '../../api/themoviedbApi';
 import { GoBackLink } from '../../components/GoBackLink/GoBackLink';
 import { FilmInfoCard } from '../../components/FilmInfoCard/FilmInfoCard';
 import { Title, Box, Links, LinkItem, NavLinkItem } from './MovieDetails.Syled';

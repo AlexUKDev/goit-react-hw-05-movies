@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { getMoviesByName } from 'api/api';
+import { getMoviesByName } from 'api/themoviedbApi';
 import { SearchBox } from '../../components/SearchBox/SearchBox';
 import { MoviesList } from 'components/MoviesList/MoviesList';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';

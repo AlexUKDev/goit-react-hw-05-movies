@@ -1,6 +1,6 @@
 // import { Link, Outlet } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { getTrendingMovies } from '../../api/api';
+import { getTrendingMovies } from '../../api/themoviedbApi';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { MoviesList } from '../../components/MoviesList/MoviesList';
 
