@@ -31,7 +31,7 @@ const MovieDetails = () => {
   }
 
   const backLinkRef = location.state?.from ?? '/';
-  console.log(location);
+
   return (
     <div>
       <GoBackLink to={backLinkRef} state={{ from: location.state.from }} />
