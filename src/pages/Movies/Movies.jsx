@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, useLocation } from 'react-router-dom';
 import { getMoviesByName } from 'api/themoviedbApi';
 import { SearchBox } from '../../components/SearchBox/SearchBox';
 import { MoviesList } from 'components/MoviesList/MoviesList';
@@ -12,6 +12,7 @@ const Movies = () => {
   const [query, setQuery] = useState(null);
 
   const search = searchParams.get('query') ?? '';
+  const location = useLocation();
 
   const createMoviesByName = async filmName => {
     if (!filmName) {
@@ -54,10 +55,19 @@ const Movies = () => {
     if (!query) {
       return;
     }
+    if (query === search) {
+      console.log(search);
+      setQuery(search);
+    }
+    // if (search) {
+    //   setQuery(search);
+    // }
 
     createMoviesByName(query);
-  }, [query]);
+  }, [query, search]);
 
+  // const backLinkRef = location.state?.from ?? '/';
+  console.log(location);
   return (
     <>
       <SearchBox

@@ -3,10 +3,11 @@ import { useState, useEffect } from 'react';
 import { getTrendingMovies } from '../../api/themoviedbApi';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { MoviesList } from '../../components/MoviesList/MoviesList';
+import { useLocation } from 'react-router-dom';
 
 const Home = () => {
   const [movies, setMovies] = useState([]);
-
+  const location = useLocation();
   const createTrandingMovies = async () => {
     try {
       const response = await getTrendingMovies();
@@ -30,7 +31,14 @@ const Home = () => {
   if (movies.length < 0) {
     return;
   }
-  return <MoviesList moviesList={movies} title={'Trending today'} />;
+  // const backLinkRef = location.state?.from ?? '/';
+  return (
+    <MoviesList
+      moviesList={movies}
+      title={'Trending today'}
+      state={{ from: location }}
+    />
+  );
 };
 
 export default Home;

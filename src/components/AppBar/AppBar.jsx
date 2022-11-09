@@ -11,6 +11,7 @@ const NavItemConfig = [
 ];
 
 export const AppBar = () => {
+  // const location = useLocation();
   return (
     <>
       <HeaderBox>

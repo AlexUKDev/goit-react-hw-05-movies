@@ -30,20 +30,24 @@ const MovieDetails = () => {
     return;
   }
 
-  const backLinkRef = location.state?.from ?? '/movies';
-
+  const backLinkRef = location.state?.from ?? '/';
+  console.log(location);
   return (
     <div>
-      <GoBackLink to={backLinkRef} />
+      <GoBackLink to={backLinkRef} state={{ from: location.state.from }} />
       <FilmInfoCard details={details} />
       <Box>
         <Title>Editional information</Title>
         <Links>
           <LinkItem>
-            <NavLinkItem to="cast">Cast</NavLinkItem>
+            <NavLinkItem to="cast" state={{ from: location.state.from }}>
+              Cast
+            </NavLinkItem>
           </LinkItem>
           <LinkItem>
-            <NavLinkItem to="reviews">Reviews</NavLinkItem>
+            <NavLinkItem to="reviews" state={{ from: location.state.from }}>
+              Reviews
+            </NavLinkItem>
           </LinkItem>
         </Links>
       </Box>
