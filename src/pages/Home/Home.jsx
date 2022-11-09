@@ -8,6 +8,7 @@ import { useLocation } from 'react-router-dom';
 const Home = () => {
   const [movies, setMovies] = useState([]);
   const location = useLocation();
+
   const createTrandingMovies = async () => {
     try {
       const response = await getTrendingMovies();
@@ -31,7 +32,7 @@ const Home = () => {
   if (movies.length < 0) {
     return;
   }
-  // const backLinkRef = location.state?.from ?? '/';
+
   return (
     <MoviesList
       moviesList={movies}

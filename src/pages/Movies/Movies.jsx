@@ -10,9 +10,12 @@ const Movies = () => {
   const [isLoaging, setIsLoading] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
   const [query, setQuery] = useState(null);
-
-  const search = searchParams.get('query') ?? '';
   const location = useLocation();
+  const search = searchParams.get('query') ?? '';
+
+  console.log('movies: ', movies);
+  console.log('search :', search);
+  console.log('query:', query);
 
   const createMoviesByName = async filmName => {
     if (!filmName) {
@@ -48,26 +51,29 @@ const Movies = () => {
     if (!search) {
       Notify.failure('Please enter a movie name and try again');
     }
+
     setQuery(search);
   };
 
   useEffect(() => {
+    if (location.state !== null) {
+      console.log('download');
+      console.log(query);
+      setQuery(search);
+    }
+
     if (!query) {
       return;
     }
-    if (query === search) {
-      console.log(search);
-      setQuery(search);
-    }
-    // if (search) {
-    //   setQuery(search);
-    // }
 
     createMoviesByName(query);
-  }, [query, search]);
+  }, [query, search, location]);
 
-  // const backLinkRef = location.state?.from ?? '/';
   console.log(location);
+
+  // if (movies.length < 0) {
+  //   return;
+  // }
   return (
     <>
       <SearchBox
