@@ -13,10 +13,6 @@ const Movies = () => {
   const location = useLocation();
   const search = searchParams.get('query') ?? '';
 
-  console.log('movies: ', movies);
-  console.log('search :', search);
-  console.log('query:', query);
-
   const createMoviesByName = async filmName => {
     if (!filmName) {
       return;
@@ -57,8 +53,6 @@ const Movies = () => {
 
   useEffect(() => {
     if (location.state !== null) {
-      console.log('download');
-      console.log(query);
       setQuery(search);
     }
 
@@ -69,11 +63,6 @@ const Movies = () => {
     createMoviesByName(query);
   }, [query, search, location]);
 
-  console.log(location);
-
-  // if (movies.length < 0) {
-  //   return;
-  // }
   return (
     <>
       <SearchBox
