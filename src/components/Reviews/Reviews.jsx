@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getReviews } from '../../api/themoviedbApi';
-import { Mesage } from 'components/UI/Mesage/Mesage';
-import { List, ListItem, Author, Text, Data } from './Reviews.Syled';
+import { Message } from 'components/UI/Message/Message';
+import { List, ListItem, Author, Text, Data } from './Reviews.Styled';
 
 const Reviews = () => {
   const { movieId } = useParams();
@@ -45,7 +45,7 @@ const Reviews = () => {
           })}
         </List>
       ) : (
-        <Mesage mesage={"We don't have any reviews for this movie."} />
+        <Message message={"We don't have any reviews for this movie."} />
       )}
     </>
   );

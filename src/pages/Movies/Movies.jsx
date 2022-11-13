@@ -7,7 +7,7 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const Movies = () => {
   const [movies, setMovies] = useState([]);
-  const [isLoaging, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
   const [query, setQuery] = useState(null);
   const location = useLocation();
@@ -70,7 +70,7 @@ const Movies = () => {
         submitHandler={submitHandler}
         searchValue={search}
       />
-      {isLoaging && <p>Loading...</p>}
+      {isLoading && <p>Loading...</p>}
       {movies.length > 0 && <MoviesList moviesList={movies} />}
     </>
   );
